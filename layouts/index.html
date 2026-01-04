@@ -1,0 +1,186 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<div class="bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-950 min-h-screen lg:min-h-screen">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 lg:h-screen lg:flex lg:items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left Column: Content -->
+      <div class="text-center lg:text-left flex flex-col justify-center">
+        <div class="mb-6">
+          <span class="inline-flex items-center px-4 py-2 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 text-sm font-medium rounded-full">
+            Tu Aula. Tu Control.
+          </span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 dark:text-white mb-6 leading-tight">
+          {{ i18n "hero_title" }}
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-xl mx-auto lg:mx-0">
+          {{ i18n "hero_subtitle" }}
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+          <a id="download-apk-btn" href="#" class="inline-flex items-center px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white font-medium rounded-lg transition-colors shadow-lg shadow-violet-600/25 cursor-not-allowed">
+            {{ i18n "download_apk" }}
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+          <a href="{{ "/manual" | relURL }}" class="inline-flex items-center px-6 py-3 border-2 border-violet-300 dark:border-violet-700 hover:border-violet-400 dark:hover:border-violet-600 text-violet-700 dark:text-violet-300 font-medium rounded-lg transition-colors">
+            {{ i18n "view_manual" }}
+          </a>
+        </div>
+
+        <!-- Collaborators Section -->
+        <div class="mt-12 pt-8">
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Desarrollado por</p>
+          <div class="flex flex-wrap gap-8 justify-center lg:justify-start items-center">
+            <img src="{{ "images/logo_upm.png" | absURL }}" alt="Universidad Politécnica de Madrid" class="h-10 sm:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+            <img src="{{ "images/logo_upf.png" | absURL }}" alt="Universitat Pompeu Fabra" class="h-10 sm:h-12 object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Phone Mockups -->
+      <div class="relative flex justify-center items-center">
+        <div class="relative w-full max-w-48 lg:max-w-56">
+          <!-- Phone 1 (Main - Answeria) -->
+          <div class="relative z-10 transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+            <div class="bg-slate-900 rounded-[1.5rem] p-1 shadow-xl shadow-slate-900/20">
+              <div class="bg-slate-900 rounded-[1.25rem] overflow-hidden">
+                <div class="relative">
+                  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-3 bg-slate-900 rounded-b-lg z-10"></div>
+                  <img src="{{ "images/answeria.png" | absURL }}" alt="MobileLantern - Asistencia IA" class="w-full">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Phone 2 (Secondary - Drawer) -->
+          <div class="absolute -right-2 sm:-right-4 top-8 z-20 w-full max-w-48 lg:max-w-56 transform rotate-6 hover:rotate-3 transition-transform duration-300">
+            <div class="bg-slate-900 rounded-[1.5rem] p-1 shadow-xl shadow-slate-900/20">
+              <div class="bg-slate-900 rounded-[1.25rem] overflow-hidden">
+                <div class="relative">
+                  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-3 bg-slate-900 rounded-b-lg z-10"></div>
+                  <img src="{{ "images/drawer.png" | absURL }}" alt="MobileLantern - Historial" class="w-full">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+  <div class="grid md:grid-cols-3 gap-12">
+    <div class="text-center">
+      <div class="mb-4">
+        <span class="text-4xl">💡</span>
+      </div>
+      <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+        Ambient Display
+      </h3>
+      <p class="text-slate-600 dark:text-slate-400">
+        Dispositivo físico que comunica el estado de cada grupo mediante señales visuales y sonoras
+      </p>
+    </div>
+    
+    <div class="text-center">
+      <div class="mb-4">
+        <span class="text-4xl">🤖</span>
+      </div>
+      <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+        Asistencia con IA
+      </h3>
+      <p class="text-slate-600 dark:text-slate-400">
+        Respuestas contextuales inmediatas que mantienen la fluidez de las sesiones de clase
+      </p>
+    </div>
+    
+    <div class="text-center">
+      <div class="mb-4">
+        <span class="text-4xl">👥</span>
+      </div>
+      <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+        Aprendizaje Colaborativo
+      </h3>
+      <p class="text-slate-600 dark:text-slate-400">
+        Fomenta la resolución colaborativa antes de solicitar ayuda externa
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- How it Works Section -->
+<div class="">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">
+      ¿Cómo funciona?
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="flex flex-row items-start gap-4">
+        <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 bg-white text-slate-900 dark:text-slate-900 rounded-full font-bold border border-slate-200 dark:border-slate-700">1</div>
+        <div>
+          <h4 class="font-semibold text-slate-900 dark:text-white mb-2">Check-in</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Escanea el QR para iniciar sesión</p>
+        </div>
+      </div>
+      
+      <div class="flex flex-row items-start gap-4">
+        <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 bg-green-500 text-white rounded-full font-bold">2</div>
+        <div>
+          <h4 class="font-semibold text-slate-900 dark:text-white mb-2">Pregunta</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Formula tu duda y activa el vaso verde</p>
+        </div>
+      </div>
+      
+      <div class="flex flex-row items-start gap-4">
+        <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 bg-red-500 text-white rounded-full font-bold">3</div>
+        <div>
+          <h4 class="font-semibold text-slate-900 dark:text-white mb-2">Colaboración</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Intenta resolver en grupo</p>
+        </div>
+      </div>
+      
+      <div class="flex flex-row items-start gap-4">
+        <div class="flex items-center justify-center w-10 h-10 flex-shrink-0 bg-red-500 text-white rounded-full font-bold">4</div>
+        <div>
+          <h4 class="font-semibold text-slate-900 dark:text-white mb-2">Ayuda</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400">IA o tutor si es necesario</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APK Download Handler Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  async function loadDownloadInfo() {
+    try {
+      const response = await fetch('{{ "mobile-lantern-download.json" | absURL }}');
+      if (response.ok) {
+        const data = await response.json();
+        if (data.available && data.download_url) {
+          const downloadBtn = document.getElementById('download-apk-btn');
+          
+          if (downloadBtn) {
+            downloadBtn.href = data.download_url;
+            downloadBtn.classList.remove('cursor-not-allowed');
+            downloadBtn.classList.add('cursor-pointer');
+            downloadBtn.setAttribute('download', data.apk_name || 'mobile-lantern.apk');
+          }
+        }
+      }
+    } catch (error) {
+      console.log('No hay información de descarga disponible');
+    }
+  }
+  
+  loadDownloadInfo();
+});
+</script>
+{{ end }}
+

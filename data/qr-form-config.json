@@ -1,0 +1,55 @@
+{
+  "accordions": [
+    {
+      "id": "question",
+      "title": "Pregunta",
+      "enabled": true,
+      "fields": [
+        {
+          "name": "qt",
+          "label": "Título",
+          "type": "text",
+          "placeholder": "Título de la pregunta"
+        },
+        {
+          "name": "qs",
+          "label": "Subtítulo",
+          "type": "text",
+          "placeholder": "Subtítulo de la pregunta"
+        },
+        {
+          "name": "qp",
+          "label": "Placeholder",
+          "type": "text",
+          "placeholder": "Placeholder de la pregunta"
+        }
+      ]
+    },
+    {
+      "id": "collaborative-answer",
+      "title": "Respuesta Colaborativa",
+      "enabled": true,
+      "fields": [
+        {
+          "name": "at",
+          "label": "Título",
+          "type": "text",
+          "placeholder": "Título de la respuesta"
+        },
+        {
+          "name": "as",
+          "label": "Subtítulo",
+          "type": "text",
+          "placeholder": "Subtítulo de la respuesta"
+        },
+        {
+          "name": "ap",
+          "label": "Placeholder",
+          "type": "text",
+          "placeholder": "Placeholder de la respuesta"
+        }
+      ]
+    }
+  ]
+}
+

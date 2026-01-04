@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-8">{{ .Title }}</h1>
+  
+  <div class="grid gap-4 md:grid-cols-2">
+    {{ range .Pages }}
+      <article class="border border-slate-200 dark:border-slate-800 rounded-lg p-6 hover:border-slate-300 dark:hover:border-slate-700 transition-colors max-w-md mx-auto md:max-w-none md:mx-0">
+        <h2 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+        {{ if .Description }}
+          <p class="text-slate-600 dark:text-slate-400 text-sm">{{ .Description }}</p>
+        {{ end }}
+      </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+

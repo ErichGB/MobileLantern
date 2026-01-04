@@ -1,0 +1,163 @@
+# Traducciones español - MobileLantern
+
+# General
+[app_name]
+other = "MobileLantern"
+
+[home]
+other = "Inicio"
+
+[manual]
+other = "Manual"
+
+[qr_generator]
+other = "Generador QR"
+
+[download]
+other = "Descargar"
+
+# Homepage
+[hero_title]
+other = "Sistema de Orquestación de Clase con IA"
+
+[hero_subtitle]
+other = "Transforma la interacción docente-estudiante mediante ambient display y asistencia de IA"
+
+[get_started]
+other = "Comenzar"
+
+[view_manual]
+other = "Ver Manual"
+
+[download_apk]
+other = "Descargar APK"
+
+# QR Generator
+[qr_generator_title]
+other = "Generador de Código QR"
+
+[qr_generator_subtitle]
+other = "Genera códigos QR para hacer check-in en la aplicación móvil MobileLantern"
+
+[username_label]
+other = "Usuario"
+
+[username_placeholder]
+other = "Ingresa el usuario"
+
+[password_label]
+other = "Contraseña"
+
+[password_placeholder]
+other = "Ingresa la contraseña"
+
+[classroom_label]
+other = "Aula"
+
+[classroom_placeholder]
+other = "Ingresa el aula"
+
+[context_label]
+other = "Contexto Pedagógico"
+
+[context_placeholder]
+other = "Ejemplo: Actúa como un profesor de programación. Guía a los estudiantes sin dar respuestas directas, usa ejemplos prácticos y enfócate en conceptos clave."
+
+[generate_button]
+other = "Generar QR"
+
+[generating_button]
+other = "Generando..."
+
+[generated_qr_title]
+other = "Código QR Generado"
+
+[download_button]
+other = "Descargar QR"
+
+[download_app_button]
+other = "Descargar App"
+
+# Theme
+[theme_light]
+other = "Claro"
+
+[theme_dark]
+other = "Oscuro"
+
+[theme_auto]
+other = "Auto"
+
+[shortcut_theme]
+other = "Tema"
+
+# Status
+[coming_soon_tag]
+other = "Próximamente"
+
+[version]
+other = "Versión"
+
+# Manual
+[on_this_page]
+other = "En esta página"
+
+[previous]
+other = "Anterior"
+
+[next]
+other = "Siguiente"
+
+[table_of_contents]
+other = "Tabla de Contenidos"
+
+[getting_started]
+other = "Comenzar"
+
+[installation]
+other = "Instalación"
+
+[basic_usage]
+other = "Uso Básico"
+
+[faq]
+other = "Preguntas Frecuentes"
+
+[what_is]
+other = "¿Qué es MobileLantern?"
+
+# QR Form Accordions
+[question_title]
+other = "Pregunta"
+
+[collaborative_answer_title]
+other = "Respuesta Colaborativa"
+
+[discard_changes]
+other = "Descartar"
+
+[field_title_label]
+other = "Título"
+
+[field_subtitle_label]
+other = "Subtítulo"
+
+[field_placeholder_label]
+other = "Placeholder"
+
+# Validation Errors
+[validation_error_title]
+other = "Error de Validación"
+
+[validation_error_username_required]
+other = "El campo \"Usuario\" es requerido"
+
+[validation_error_password_required]
+other = "El campo \"Contraseña\" es requerido"
+
+[validation_error_context_required]
+other = "El campo \"Contexto Pedagógico\" es requerido"
+
+[validation_error_char_limit]
+other = "El contenido excede el límite de caracteres"
+

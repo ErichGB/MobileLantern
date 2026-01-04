@@ -1,0 +1,35 @@
+baseURL = "https://erichgb.github.io/MobileLantern/"
+relativeURLs = true
+title = "MobileLantern"
+
+languageCode = "es-es"
+DefaultContentLanguage = "es"
+
+enableEmoji = true
+enableGitInfo = false
+enableRobotsTXT = true
+canonifyURLs = false
+paginate = 9
+enableInlineShortcodes = true
+
+[params]
+author = "ErichGB"
+sitename = "MobileLantern"
+description = "Sistema de orquestación de clase con IA y ambient display"
+github = "https://github.com/ErichGB/MobileLantern"
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.tableOfContents]
+endLevel = 3
+ordered = false
+startLevel = 2
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.104.0"
+
