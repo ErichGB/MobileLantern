@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  
+  <!-- Contenido del _index.md -->
+  <article class="prose prose-slate dark:prose-invert max-w-none mb-12">
+    {{ .Content }}
+  </article>
+
+  <!-- Separador visual -->
+  <hr class="my-12 border-slate-200 dark:border-slate-800">
+  
+  <!-- Lista de sub-páginas -->
+  <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">{{ .Title }}</h2>
+  <div class="grid gap-4 md:grid-cols-2">
+    {{ range .Pages }}
+      <article class="border border-slate-200 dark:border-slate-800 rounded-lg p-6 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+        <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h3>
+        {{ if .Description }}
+          <p class="text-slate-600 dark:text-slate-400 text-sm">{{ .Description }}</p>
+        {{ end }}
+      </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+

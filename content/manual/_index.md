@@ -41,12 +41,3 @@ El sistema MobileLantern sigue un flujo pedagógico diseñado para fomentar el a
 3. **🟢 Vaso Verde** → Intenta resolver en equipo (fase colaborativa)
 4. **🔴 Vaso Rojo** → Si no se resuelve, recibe ayuda de IA
 5. **👨‍🏫 Intervención docente** → El profesor interviene si es necesario
-
----
-
-## 📑 Contenido del Manual
-
-- Lee sobre [qué es MobileLantern]({{< ref "que-es" >}}) y el generador de códigos QR
-- Aprende cómo [instalar la aplicación]({{< ref "instalacion" >}})
-- Descubre el [uso básico]({{< ref "uso-basico" >}}) con guía paso a paso
-- Consulta las [preguntas frecuentes]({{< ref "faq" >}}) y solución de problemas
