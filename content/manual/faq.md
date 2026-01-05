@@ -3,179 +3,196 @@ title: "Preguntas Frecuentes"
 date: 2025-01-25T12:00:00Z
 draft: false
 weight: 5
-description: "Respuestas a las preguntas más comunes sobre MobileLantern"
+description: "Respuestas a las preguntas más comunes y solución de problemas de MobileLantern"
 ---
 
 # Preguntas Frecuentes (FAQ)
 
 Encuentra respuestas a las preguntas más comunes sobre MobileLantern.
 
-## Instalación y configuración
+## General
 
-### ¿En qué dispositivos funciona MobileLantern?
+**¿Necesito crear una cuenta para usar MobileLantern?**  
+No. El acceso se realiza mediante el código QR proporcionado por su profesor, que contiene las credenciales de su grupo.
 
-MobileLantern está disponible para dispositivos Android con versión 8.0 (Oreo) o superior. Requiere una cámara funcional y preferiblemente linterna LED.
+**¿Puedo usar la aplicación fuera del aula?**  
+La aplicación está diseñada para uso en sesiones de clase coordinadas por un profesor. Requiere códigos QR válidos generados por el sistema del profesor.
 
-### ¿Por qué no encuentro MobileLantern en Google Play Store?
+**¿La aplicación funciona sin conexión a internet?**  
+No. Se requiere conexión a internet para la autenticación, consultas a la IA y sincronización del historial.
 
+**¿Por qué no encuentro MobileLantern en Google Play Store?**  
 MobileLantern se distribuye actualmente como APK directo, no a través de Google Play Store. Puedes descargarlo desde la página oficial o tu profesor te proporcionará el enlace.
 
-### ¿Es seguro instalar aplicaciones desde fuentes desconocidas?
+---
 
-Sí, siempre que descargues el APK desde la fuente oficial de MobileLantern. Asegúrate de descargar solo desde el sitio web oficial o el enlace proporcionado por tu institución educativa.
+## Autenticación y Acceso
 
-### ¿Necesito crear una cuenta?
+**¿Qué hago si el código QR no escanea?**  
+- Asegúrese de tener buena iluminación
+- Limpie la cámara de su dispositivo
+- Mantenga el código QR dentro del marco
+- Solicite un nuevo código QR a su profesor si el problema persiste
 
-No. MobileLantern no requiere registro personal. El acceso se realiza mediante códigos QR generados por el profesor para cada sesión.
+**¿Puedo iniciar sesión sin código QR?**  
+No. Siempre debe escanear el código QR proporcionado por su profesor.
 
-### ¿Qué permisos necesita la aplicación y por qué?
+**¿Qué es el Modo Aula?**  
+El Modo Aula se activa cuando el código QR incluye un identificador de aula. En este modo, el historial muestra las preguntas de todos los grupos del aula, no solo las de su grupo.
 
-- **Cámara**: Para escanear códigos QR de check-in
-- **Linterna**: Para el ambient display (señalización visual)
-- **Internet**: Para comunicarse con el servidor y la IA
-- **Notificaciones**: Para recibir alertas sobre cambios de estado
+---
 
-## Uso durante clase
+## Uso de la Aplicación
 
-### ¿Cómo hago check-in?
+**¿Puedo registrar varias preguntas simultáneamente?**  
+No. El sistema está diseñado para trabajar en una pregunta a la vez, fomentando el enfoque y la resolución completa antes de pasar a la siguiente.
 
-1. Abre la aplicación
-2. Toca "Escanear QR"
-3. Apunta la cámara al QR proporcionado por tu profesor
-4. Espera la confirmación
+**¿Qué pasa si cierro la aplicación durante una sesión activa?**  
+La sesión se mantiene activa en segundo plano. Al volver a abrir la aplicación, continuará en la pantalla donde estaba.
 
-### ¿Qué pasa si llego tarde a clase?
+**¿Puedo editar una pregunta después de registrarla?**  
+No. Una vez registrada, la pregunta queda fija. Sin embargo, puede hacer preguntas aclaratorias a la IA o al profesor.
 
-Puedes hacer check-in en cualquier momento durante la sesión. Solo escanea el código QR y te unirás al grupo correspondiente.
+---
 
-### ¿Puedo usar la aplicación sin Internet?
+## Inteligencia Artificial
 
-No. MobileLantern requiere conexión a Internet para funcionar, ya que se comunica con el servidor y con los servicios de IA en tiempo real.
+**¿La IA proporciona las respuestas directas a los ejercicios?**  
+No. La IA está diseñada para **guiar el aprendizaje**, proporcionando pistas, explicaciones de conceptos y ayudando a identificar errores, pero fomentando que el estudiante llegue a la solución por sí mismo.
 
-### ¿Cuánto dura el vaso verde?
-
-El tiempo del vaso verde (fase colaborativa) generalmente es de 3 a 5 minutos, pero puede variar según la configuración del profesor para cada sesión.
-
-### ¿Puedo saltarme el vaso verde y pedir ayuda directamente?
-
-Sí, existe la opción de solicitar ayuda antes de que termine el temporizador, pero se recomienda intentar resolver en grupo primero para maximizar el aprendizaje colaborativo.
-
-### ¿Cuántas preguntas puedo hacer en una sesión?
-
-No hay límite de preguntas. Puedes formular tantas dudas como necesites durante la sesión de clase.
-
-## Sobre la IA
-
-### ¿Qué tipo de IA usa MobileLantern?
-
-MobileLantern utiliza modelos de IA generativa configurados específicamente para proporcionar orientación pedagógica contextualizada.
-
-### ¿La IA me dará las respuestas directamente?
-
-No. La IA está configurada para **guiar tu aprendizaje** mediante pistas, conceptos clave y preguntas que te ayuden a razonar, en lugar de proporcionar respuestas directas.
-
-### ¿La IA conoce el contenido de mi curso?
-
+**¿La IA conoce el contenido de mi curso?**  
 La IA trabaja con el **contexto pedagógico** definido por tu profesor. Este contexto le indica cómo debe responder y qué enfoque pedagógico seguir.
 
-### ¿Puedo hacer preguntas de seguimiento a la IA?
-
+**¿Puedo hacer preguntas de seguimiento a la IA?**  
 Sí, puedes iterar con la IA haciendo preguntas adicionales para aclarar conceptos o profundizar en temas específicos.
 
-### ¿La IA funciona para todas las asignaturas?
-
+**¿La IA funciona para todas las asignaturas?**  
 Sí, la IA puede adaptarse a diferentes materias siempre que el profesor haya configurado el contexto pedagógico apropiado.
 
-## Privacidad y datos
+**¿La IA puede ver mis archivos o código privado?**  
+No. La IA solo tiene acceso a lo que usted explícitamente escribe o envía en la aplicación. No puede acceder a archivos de su dispositivo sin su permiso.
 
-### ¿Mis preguntas son privadas?
+---
 
-Las preguntas son visibles para:
-- Los miembros de tu grupo
-- Tu profesor
-- El sistema (para funcionalidad y análisis)
+## Privacidad y Datos
 
-No son públicas ni visibles para otros grupos.
+**¿Se guardan mis preguntas y respuestas?**  
+Sí. Todo el historial de interacciones se almacena localmente en su dispositivo y en el servidor para fines educativos y análisis por parte de su profesor.
 
-### ¿Se guarda mi historial de preguntas?
+**¿Quién puede ver mi historial?**  
+Su historial es visible para:
+- Usted y sus compañeros de grupo
+- Su profesor
+- Administradores del sistema
 
-Sí, el historial se guarda en el servidor para que puedas consultarlo posteriormente y para que el profesor pueda hacer seguimiento del proceso de aprendizaje.
+**¿Se eliminan mis datos al final del curso?**  
+Las políticas de retención de datos dependen de su institución educativa. Consulte con su profesor o administrador del sistema.
 
-### ¿Puedo eliminar preguntas del historial?
+---
 
-Las preguntas no se pueden eliminar individualmente, ya que forman parte del registro académico de la sesión. Contacta con tu profesor si tienes inquietudes específicas.
+## Hardware y Dispositivo
 
-### ¿Qué datos personales almacena MobileLantern?
+**¿Por qué aparece una advertencia de que la linterna está encendida?**  
+MobileLantern necesita control exclusivo de la linterna. Si otra aplicación (como la linterna del sistema) la tiene encendida, verá esta advertencia. Apague la linterna desde el panel de notificaciones o la app que la esté usando.
 
-MobileLantern almacena:
-- Usuario asignado al grupo (generalmente no es tu nombre real)
-- Preguntas y respuestas
-- Tiempos de interacción
-- Datos técnicos de uso
+**¿Por qué la linterna de mi dispositivo no funciona?**  
+- Verifique que su dispositivo tenga flash LED
+- Asegúrese de haber concedido permisos de cámara a la app
+- Compruebe que ninguna otra app esté usando la linterna
+- Reinicie la aplicación
+- Si el problema persiste, pruebe en otro dispositivo
 
-No almacena datos personales identificables como correo electrónico, teléfono o información bancaria.
+**¿Cómo silencio las alertas sonoras?**  
+En la pantalla de asistencia por IA, hay un botón de silencio (🔊) en la esquina. Toque **3 veces consecutivas** (en menos de 2 segundos entre toques) para activar el modo silencio. El icono cambiará a 🔇.
 
-## Problemas técnicos
+**¿La aplicación consume mucha batería?**  
+El uso de la linterna constante puede consumir batería. Se recomienda tener el dispositivo cargado o conectado durante sesiones largas.
 
-### La linterna no funciona
+**¿Necesito tener los vasos físicos?**  
+Sí, los vasos de colores son parte integral del sistema de señalización para que el profesor pueda monitorear visualmente a todos los grupos.
 
-**Soluciones**:
+---
+
+## Problemas Técnicos
+
+**La linterna no funciona. ¿Qué hago?**  
 - Verifica que hayas otorgado permiso de cámara/linterna
 - Cierra otras aplicaciones que puedan estar usando la linterna
 - Reinicia la aplicación MobileLantern
 - Reinicia tu dispositivo
 
-### No puedo escanear el código QR
+**La aplicación se cierra inesperadamente. ¿Qué hago?**  
+1. Reinicie la aplicación
+2. Verifique que tenga la última versión instalada
+3. Libere espacio en su dispositivo si es necesario
+4. Contacte a soporte técnico si el problema persiste
 
-**Soluciones**:
+**No puedo escanear el código QR. ¿Qué hago?**  
 - Asegúrate de que haya buena iluminación
 - Limpia la lente de la cámara
 - Mantén el teléfono estable frente al QR
 - Verifica que el QR esté completo y visible
 - Otorga permiso de cámara si no lo has hecho
 
-### La aplicación se cierra inesperadamente
+**No recibo respuestas de la IA. ¿Qué pasa?**  
+- Verifique su conexión a internet
+- Espere unos segundos (la IA puede tardar en procesar)
+- Reporte al profesor si el problema continúa
 
-**Soluciones**:
-- Asegúrate de tener Android 8.0 o superior
-- Libera memoria cerrando otras aplicaciones
-- Desinstala y reinstala MobileLantern
-- Contacta con soporte técnico
+**El historial no se actualiza. ¿Qué hago?**  
+- Cierre y vuelva a abrir el menú lateral
+- Verifique su conexión a internet
+- Reinicie la aplicación si es necesario
 
-### No recibo respuesta de la IA
-
-**Soluciones**:
-- Verifica tu conexión a Internet
-- Espera unos segundos, puede haber latencia
-- Intenta reformular la pregunta
-- Si el problema persiste, solicita ayuda del tutor
-
-### El ambient display no cambia de color
-
-El cambio de color es figurativo (la linterna solo emite luz blanca). Los "colores" verde y rojo se refieren al estado del sistema, no al color real de la luz. El cambio se indica mediante:
-- Patrones de parpadeo diferentes
-- Notificaciones en pantalla
-- Alertas sonoras distintas
+---
 
 ## Sobre el sistema
 
-### ¿Qué es el "ambient display"?
-
+**¿Qué es el “ambient display”?**  
 Es la funcionalidad que convierte tu teléfono en un dispositivo de señalización ambiental usando la linterna y sonidos para comunicar el estado de tu grupo a todos los miembros.
 
-### ¿Por qué se llama "vaso verde" y "vaso rojo"?
-
+**¿Por qué se llama “vaso verde” y “vaso rojo”?**  
 La terminología proviene de la metáfora pedagógica del semáforo:
 - **Verde**: Puedes continuar trabajando en grupo
 - **Rojo**: Necesitas detenerte y recibir ayuda
 
-### ¿Puedo usar MobileLantern fuera de clase?
-
+**¿Puedo usar MobileLantern fuera de clase?**  
 La aplicación requiere que el profesor genere una sesión activa y códigos QR. No es posible usarla de forma independiente sin la configuración del docente.
 
-### ¿MobileLantern funciona en modo offline?
-
+**¿MobileLantern funciona en modo offline?**  
 No. La aplicación requiere conexión constante a Internet para sincronizar con el servidor, acceder a la IA y coordinar con otros miembros del grupo.
+
+---
+
+# 🛠️ Solución de Problemas Comunes
+
+## Tabla de Diagnóstico
+
+| Síntoma | Causa Probable | Solución |
+|---------|----------------|----------|
+| 🚫 No escanea QR | Cámara sin permiso | Otorgue permisos en Configuración |
+| 🔦 Linterna no enciende | Permisos o hardware | Verifique permisos y funcionalidad del flash |
+| ⚠️ Advertencia linterna | Linterna usada por otra app | Apague linterna del sistema |
+| 🌐 Error de red | Sin internet | Conecte a WiFi o datos móviles |
+| 🤖 IA no responde | Servidor ocupado | Espere 30 seg y reintente |
+| 📱 App se cierra | Memoria insuficiente | Cierre otras apps y reinicie |
+| 🔇 Sin sonido de alerta | Volumen bajo o mute activo | Suba volumen o desactive mute (3 toques) |
+| 📖 Historial vacío | Primera sesión o sin datos | Normal si es primer uso |
+| 📖 Historial muestra muchas preguntas | Modo aula activo | Normal si el QR incluye identificador de aula |
+
+---
+
+## Reinicio Completo
+
+Si experimenta problemas persistentes:
+
+1. **Cierre la aplicación** completamente
+2. **Limpie la caché** (Configuración > Apps > MobileLantern > Borrar caché)
+3. **Reinicie** su dispositivo
+4. **Vuelva a abrir** la aplicación
+5. **Escanee nuevamente** el código QR
+
+---
 
 ## Soporte adicional
 
@@ -192,7 +209,6 @@ Si encuentras un problema técnico:
 1. Anota los detalles del error (qué estabas haciendo, mensajes de error)
 2. Captura pantallas si es posible
 3. Reporta al profesor o soporte técnico de tu institución
-4. Si está disponible, usa el formulario de feedback en la configuración de la app
 
 ### ¿Habrá una versión para iOS?
 

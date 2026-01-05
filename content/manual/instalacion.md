@@ -6,64 +6,61 @@ weight: 3
 description: "Cómo instalar y configurar la aplicación MobileLantern"
 ---
 
-# Instalación de MobileLantern
+# 💻 Instalación y Requisitos
 
 Esta guía te ayudará a instalar la aplicación móvil MobileLantern en tu dispositivo Android.
 
-## Requisitos del sistema
+## Requisitos del Sistema
 
-Antes de instalar MobileLantern, asegúrate de que tu dispositivo cumple con los siguientes requisitos:
+### Hardware Mínimo
 
-### Hardware
+- Dispositivo Android con **SDK 28 (Android 9)** o superior
+- Cámara trasera funcional para escaneo QR
+- Linterna (LED flash) funcional
+- Mínimo **2GB de RAM**
+- **100MB** de espacio disponible
 
-- **Sistema operativo**: Android 8.0 (Oreo) o superior
-- **RAM**: Mínimo 2 GB recomendado
-- **Almacenamiento**: Al menos 50 MB de espacio libre
-- **Cámara**: Necesaria para escanear códigos QR
-- **Linterna**: Para funcionalidad de ambient display
+### Recomendado
 
-### Permisos necesarios
+- **Android 13** o superior (SDK 35)
+- **4GB de RAM** o más
+- Conexión **WiFi estable**
 
-La aplicación requiere los siguientes permisos:
+## Permisos Necesarios
 
-- 📷 **Cámara**: Para escanear códigos QR de check-in
-- 🔦 **Linterna**: Para el ambient display visual
-- 🔔 **Notificaciones**: Para alertas del sistema
-- 🌐 **Internet**: Para comunicación con el servidor
+La aplicación solicitará los siguientes permisos:
 
-## Descarga e instalación
+| Permiso | Propósito | Obligatorio |
+|---------|-----------|-------------|
+| 📷 **Cámara** | Escanear código QR de acceso | ✅ Sí |
+| 🔦 **Linterna** | Sistema de señalización visual | ✅ Sí |
+| 🌐 **Internet** | Comunicación con IA y servidor | ✅ Sí |
 
-### Paso 1: Descargar el APK
+---
 
-1. Accede a la [página principal](/) de MobileLantern
-2. Haz clic en el botón **"Descargar APK"**
-3. Guarda el archivo en tu dispositivo
+## Descarga e Instalación
 
-> **Nota**: Si el botón muestra "Próximamente", la aplicación aún no está disponible públicamente. Contacta con tu profesor para obtener acceso.
+### Descarga Directa (APK)
 
-### Paso 2: Habilitar instalación de fuentes desconocidas
+1. Descargue el archivo APK desde el enlace:
+   
+   ```
+   https://github.com/ErichGB/ErichGB.github.io/releases/tag/v0.9.0-android
+   ```
 
-Dado que MobileLantern se distribuye como APK (no está en Google Play Store), necesitas habilitar la instalación desde fuentes desconocidas:
+2. Active "Orígenes desconocidos" en su dispositivo:
+   - Vaya a **Configuración** > **Seguridad**
+   - Active **Fuentes desconocidas** o **Instalar aplicaciones desconocidas**
 
-1. Abre **Configuración** en tu dispositivo Android
-2. Ve a **Seguridad** o **Privacidad**
-3. Busca **Instalar aplicaciones desconocidas** o **Fuentes desconocidas**
-4. Permite la instalación para tu navegador o gestor de archivos
+3. Abra el archivo APK descargado
 
-> **Android 8.0+**: El sistema te pedirá permiso específicamente cuando intentes instalar el APK.
+4. Siga las instrucciones de instalación en pantalla
 
-### Paso 3: Instalar la aplicación
+---
 
-1. Abre el gestor de archivos o la carpeta de **Descargas**
-2. Toca el archivo APK descargado (`MobileLantern-vX.X.X.apk`)
-3. Sigue las instrucciones en pantalla
-4. Toca **Instalar**
-5. Espera a que se complete la instalación
-6. Toca **Abrir** para iniciar la aplicación
+## Primera Ejecución
 
-## Primera ejecución
-
-### Otorgar permisos
+### Otorgar Permisos
 
 La primera vez que abras MobileLantern, la aplicación te pedirá los permisos necesarios:
 
@@ -75,20 +72,19 @@ La primera vez que abras MobileLantern, la aplicación te pedirá los permisos n
    - Generalmente incluido con permisos de cámara
    - Necesario para el ambient display
 
-3. **Notificaciones**
-   - Recomendado para recibir alertas del sistema
+> ⚠️ **Importante**: Si deniega algún permiso, algunas funciones no estarán disponibles. Puedes cambiar los permisos más tarde en la configuración del sistema.
 
-> ⚠️ **Importante**: Si denlegas algún permiso, algunas funciones no estarán disponibles. Puedes cambiar los permisos más tarde en la configuración del sistema.
-
-### Verificar instalación
+### Verificar Instalación
 
 Para confirmar que la instalación fue exitosa:
 
 1. Abre la aplicación MobileLantern
 2. Deberías ver la pantalla de bienvenida
-3. El botón **"Escanear QR"** o **"Check-in"** debe estar visible
+3. El botón **"Empezar"** debe estar visible
 
-## Solución de problemas
+---
+
+## Solución de Problemas
 
 ### No puedo instalar el APK
 
@@ -96,7 +92,7 @@ Para confirmar que la instalación fue exitosa:
 
 **Solución**:
 - Verifica que hayas habilitado la instalación desde fuentes desconocidas
-- Asegúrate de que el APK se haya descargado completamente (tamaño correcto)
+- Asegúrate de que el APK se haya descargado completamente
 - Intenta descargar el APK de nuevo
 
 ### La aplicación no abre
@@ -104,7 +100,7 @@ Para confirmar que la instalación fue exitosa:
 **Problema**: La app se cierra inmediatamente después de abrirla.
 
 **Solución**:
-- Verifica que tu versión de Android sea 8.0 o superior
+- Verifica que tu versión de Android sea **9.0 o superior**
 - Reinicia tu dispositivo
 - Desinstala y reinstala la aplicación
 - Contacta con soporte técnico si el problema persiste
@@ -127,6 +123,8 @@ Para confirmar que la instalación fue exitosa:
 - Comprueba que la linterna no esté siendo usada por otra aplicación
 - Otorga todos los permisos necesarios
 
+---
+
 ## Actualización
 
 Para actualizar MobileLantern a una nueva versión:
@@ -135,6 +133,8 @@ Para actualizar MobileLantern a una nueva versión:
 2. Instala sobre la versión existente
 3. No es necesario desinstalar la versión anterior
 4. Tus datos y configuración se conservarán
+
+---
 
 ## Desinstalación
 
@@ -147,10 +147,11 @@ Si necesitas desinstalar MobileLantern:
 
 > **Nota**: Al desinstalar perderás el historial local, pero los datos en el servidor se conservan.
 
+---
+
 ## Próximos pasos
 
 Una vez instalada la aplicación:
 
 - Lee sobre el [uso básico]({{< ref "uso-basico" >}}) para comenzar
 - Consulta las [preguntas frecuentes]({{< ref "faq" >}}) si tienes dudas
-

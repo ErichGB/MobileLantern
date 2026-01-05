@@ -6,40 +6,47 @@ weight: 1
 description: "Guía de inicio rápido para MobileLantern"
 ---
 
-# Comenzar con MobileLantern
+# Manual de Usuario - MobileLantern
 
-Bienvenido a **MobileLantern**, el sistema de orquestación de clase que combina ambient display con inteligencia artificial para transformar el aprendizaje colaborativo.
+## 📱 Sistema de Orquestación de Clase con IA y Ambient Display
 
-## Inicio rápido
+**Versión:** 1.1  
+**Fecha:** Diciembre 2025  
+**Desarrollado por:** UPM - UPF
 
-Para empezar a usar MobileLantern, sigue estos tres pasos:
+---
 
-### 1. Instalar la aplicación
+## 🚀 Inicio Rápido
 
-Descarga e instala la aplicación móvil MobileLantern en tu dispositivo Android (versión 8.0 o superior).
+### Primer Uso
 
-### 2. Realizar check-in
+1. **Abra la aplicación** MobileLantern
+2. **Escanee el código QR** proporcionado por su profesor
+3. **Comience a trabajar** registrando su primera pregunta
 
-Escanea el código QR proporcionado por tu profesor para unirte a la sesión de clase.
+¡Así de simple!
 
-### 3. Comenzar a colaborar
+### Código QR de Acceso
 
-¡Ya puedes formular preguntas, colaborar con tu equipo y recibir ayuda cuando la necesites!
+El código QR contiene las credenciales de su grupo de trabajo. Su profesor le proporcionará este código al inicio de cada sesión.
 
-## Flujo de trabajo
+---
+
+## 🔄 Flujo de Trabajo
 
 El sistema MobileLantern sigue un flujo pedagógico diseñado para fomentar el aprendizaje colaborativo:
 
 1. **Check-in** → Únete a la sesión escaneando un QR
 2. **Pregunta** → Formula tu duda al sistema
-3. **Vaso Verde** → Intenta resolver en equipo (fase colaborativa)
-4. **Vaso Rojo** → Si no se resuelve, recibe ayuda de IA
-5. **Intervención docente** → El profesor interviene si es necesario
+3. **🟢 Vaso Verde** → Intenta resolver en equipo (fase colaborativa)
+4. **🔴 Vaso Rojo** → Si no se resuelve, recibe ayuda de IA
+5. **👨‍🏫 Intervención docente** → El profesor interviene si es necesario
 
-## Próximos pasos
+---
 
-- Lee sobre [qué es MobileLantern]({{< ref "que-es" >}})
+## 📑 Contenido del Manual
+
+- Lee sobre [qué es MobileLantern]({{< ref "que-es" >}}) y el generador de códigos QR
 - Aprende cómo [instalar la aplicación]({{< ref "instalacion" >}})
-- Descubre el [uso básico]({{< ref "uso-basico" >}})
-- Consulta las [preguntas frecuentes]({{< ref "faq" >}})
-
+- Descubre el [uso básico]({{< ref "uso-basico" >}}) con guía paso a paso
+- Consulta las [preguntas frecuentes]({{< ref "faq" >}}) y solución de problemas
