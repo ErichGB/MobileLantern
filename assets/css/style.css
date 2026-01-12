@@ -69,7 +69,6 @@
     --radius-lg: 0.5rem;
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
-    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -540,6 +539,9 @@
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
@@ -675,9 +677,6 @@
   .border-violet-300 {
     border-color: var(--color-violet-300);
   }
-  .bg-black {
-    background-color: var(--color-black);
-  }
   .bg-black\/30 {
     background-color: color-mix(in srgb, #000 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -788,6 +787,9 @@
   }
   .py-20 {
     padding-block: calc(var(--spacing) * 20);
+  }
+  .pt-6 {
+    padding-top: calc(var(--spacing) * 6);
   }
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
@@ -974,17 +976,9 @@
     --tw-duration: 200ms;
     transition-duration: 200ms;
   }
-  .duration-250 {
-    --tw-duration: 250ms;
-    transition-duration: 250ms;
-  }
   .duration-300 {
     --tw-duration: 300ms;
     transition-duration: 300ms;
-  }
-  .duration-400 {
-    --tw-duration: 400ms;
-    transition-duration: 400ms;
   }
   .duration-\[250ms\] {
     --tw-duration: 250ms;
@@ -1802,6 +1796,38 @@ span[class*="bg-green-500"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+@keyframes collaborators-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes collaborators-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.collaborators-section {
+  animation: collaborators-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+}
+.collaborators-section img {
+  animation: collaborators-scale-in 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+.collaborators-section img:last-child {
+  animation-delay: 0.45s;
 }
 @property --tw-translate-x {
   syntax: "*";
