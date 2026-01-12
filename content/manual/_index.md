@@ -8,14 +8,6 @@ description: "Guía de inicio rápido para MobileLantern"
 
 # Manual de Usuario - MobileLantern
 
-## 📱 Sistema de Orquestación de Clase con IA y Ambient Display
-
-**Versión:** 1.1  
-**Fecha:** Diciembre 2025  
-**Desarrollado por:** UPM - UPF
-
----
-
 ## 🚀 Inicio Rápido
 
 ### Primer Uso
