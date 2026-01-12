@@ -1,6 +1,11 @@
 /* MobileLantern Main CSS */
 @import "tailwindcss";
 
+/* Alpine.js cloak - hide elements until Alpine initializes */
+[x-cloak] {
+  display: none !important;
+}
+
 /* Configure dark mode to use .dark class instead of media query */
 @custom-variant dark (&:where(.dark, .dark *));
 
