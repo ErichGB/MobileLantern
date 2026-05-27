@@ -28,6 +28,62 @@
     }
   </script>
   
+  <!-- Alpine.js Store (before Alpine.js loads) -->
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.store('download', {
+        version: null,
+        downloadUrl: null,
+        loading: true,
+        initialized: false,
+        
+        async init() {
+          if (this.initialized) return;
+          this.initialized = true;
+          
+          const cached = localStorage.getItem('appRelease');
+          const cacheTime = localStorage.getItem('appReleaseTime');
+          const now = Date.now();
+          
+          if (cached && cacheTime && (now - parseInt(cacheTime)) < 3600000) {
+            const data = JSON.parse(cached);
+            this.version = data.version;
+            this.downloadUrl = data.downloadUrl;
+            this.loading = false;
+            return;
+          }
+          
+          try {
+            const response = await fetch('https://api.github.com/repos/ErichGB/ErichGB.github.io/releases/latest');
+            const release = await response.json();
+            const apkAsset = release.assets.find(asset => asset.name.endsWith('.apk'));
+            
+            if (apkAsset) {
+              this.version = release.tag_name.replace('v', '').replace('-android', '');
+              this.downloadUrl = apkAsset.browser_download_url;
+              
+              localStorage.setItem('appRelease', JSON.stringify({
+                version: this.version,
+                downloadUrl: this.downloadUrl
+              }));
+              localStorage.setItem('appReleaseTime', now.toString());
+            }
+          } catch (error) {
+            console.error('Error fetching release:', error);
+          } finally {
+            this.loading = false;
+          }
+        },
+        
+        download() {
+          if (this.downloadUrl) {
+            window.open(this.downloadUrl, '_blank');
+          }
+        }
+      });
+    });
+  </script>
+  
   <!-- Alpine.js -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
 </head>

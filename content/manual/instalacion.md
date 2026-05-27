@@ -42,11 +42,26 @@ La aplicación solicitará los siguientes permisos:
 
 ### Descarga Directa (APK)
 
-1. Descargue el archivo APK desde el enlace:
+1. Descargue el archivo APK desde el siguiente enlace:
    
-   ```
-   https://github.com/ErichGB/ErichGB.github.io/releases/tag/v0.9.0-android
-   ```
+   <div x-data x-init="$store.download.init()" class="my-4">
+     <div x-show="$store.download.loading" class="text-slate-600 dark:text-slate-400">
+       Cargando información de descarga...
+     </div>
+     <div x-show="!$store.download.loading && $store.download.downloadUrl">
+       <a 
+         :href="$store.download.downloadUrl" 
+         @click="$store.download.download()"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 underline">
+         <span x-text="'Descargar APK' + ($store.download.version ? ' (v' + $store.download.version + ')' : '')"></span>
+       </a>
+     </div>
+     <div x-show="!$store.download.loading && !$store.download.downloadUrl" class="text-red-600 dark:text-red-400">
+       No se tiene información de descarga. Por favor, intente más tarde.
+     </div>
+   </div>
 
 2. Active "Orígenes desconocidos" en su dispositivo:
    - Vaya a **Configuración** > **Seguridad**
