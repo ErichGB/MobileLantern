@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature android:name="android.hardware.camera.flash" android:required="true" />
+
+    <application
+        android:name=".MobileLanternApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MobileLantern"
+        android:enableOnBackInvokedCallback="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileLantern">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="mobilelantern" android:host="checkin" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".QuestionActivity"
+            android:exported="false"
+            android:label="Pregunta"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileLantern" />
+        <activity
+            android:name=".AnswerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileLantern" />
+        <activity
+            android:name=".AnsweriaActivity"
+            android:exported="false"
+            android:label="Respuesta Colaborativa"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileLantern" />
+        <activity
+            android:name=".QuestionDetailActivity"
+            android:exported="false"
+            android:label="Detalle de Pregunta"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileLantern" />
+        <activity
+            android:name=".IntegratedLanternActivity"
+            android:exported="false"
+            android:label="Linterna Integrada"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileLantern" />
+        <activity
+            android:name=".LanternActivity"
+            android:exported="true"
+            android:label="Linterna Bluetooth"
+            android:theme="@style/Theme.MobileLantern"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="mobilelantern"
+                    android:host="connect" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

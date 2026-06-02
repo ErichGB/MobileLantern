@@ -1,0 +1,8 @@
+sdk.dir=/path/to/Android/sdk
+BASE_URL=https://your-backend.example.com/
+BASIC_USER=your_user
+BASIC_PASS=your_password
+KEYSTORE_FILE=../mobile-lantern-release.jks
+KEYSTORE_PASSWORD=changeme
+KEY_ALIAS=mobile-lantern
+KEY_PASSWORD=changeme
