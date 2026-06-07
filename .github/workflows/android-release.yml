@@ -1,0 +1,155 @@
+name: Android Release
+
+on:
+  push:
+    tags:
+      # Solo releases de la app Android. El firmware usa tags "fw-v*" (firmware-release.yml).
+      - "v*"
+      - "!fw-*"
+  workflow_dispatch:
+    inputs:
+      version_name:
+        description: "Versión (ej. v1.0.0)"
+        required: true
+      build_type:
+        description: "Tipo de build"
+        type: choice
+        options:
+          - release
+          - debug
+        default: release
+
+permissions:
+  contents: write
+
+# Evita ejecuciones solapadas del mismo tag; independiente del workflow de firmware.
+concurrency:
+  group: android-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: version
+        working-directory: ${{ github.workspace }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            VERSION_TAG="${{ github.event.inputs.version_name }}"
+          else
+            VERSION_TAG="${{ github.ref_name }}"
+          fi
+          APP_VERSION="${VERSION_TAG#v}"
+          echo "tag_name=$VERSION_TAG" >> $GITHUB_OUTPUT
+          echo "app_version_name=$APP_VERSION" >> $GITHUB_OUTPUT
+          echo "version_code=${{ github.run_number }}" >> $GITHUB_OUTPUT
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: |
+            platforms;android-35
+            build-tools;35.0.0
+
+      - name: Configure signing and secrets
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          BASIC_USER: ${{ secrets.BASIC_USER }}
+          BASIC_PASS: ${{ secrets.BASIC_PASS }}
+          APP_VERSION_NAME: ${{ steps.version.outputs.app_version_name }}
+          VERSION_CODE: ${{ steps.version.outputs.version_code }}
+        run: |
+          if [ -z "$ANDROID_KEYSTORE_BASE64" ]; then
+            echo "::error::ANDROID_KEYSTORE_BASE64 secret is required"
+            exit 1
+          fi
+          for var in KEYSTORE_PASSWORD KEY_ALIAS KEY_PASSWORD; do
+            if [ -z "${!var}" ]; then
+              echo "::error::$var secret is required"
+              exit 1
+            fi
+          done
+          echo "$ANDROID_KEYSTORE_BASE64" | base64 -d > app/release-keystore.jks
+          SDK_DIR="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
+          {
+            echo "sdk.dir=$SDK_DIR"
+            echo "KEYSTORE_FILE=release-keystore.jks"
+            echo "KEYSTORE_PASSWORD=$KEYSTORE_PASSWORD"
+            echo "KEY_ALIAS=$KEY_ALIAS"
+            echo "KEY_PASSWORD=$KEY_PASSWORD"
+            echo "VERSION_NAME=$APP_VERSION_NAME"
+            echo "VERSION_CODE=$VERSION_CODE"
+          } > local.properties
+          if [ -n "$BASE_URL" ]; then
+            echo "BASE_URL=$BASE_URL" >> local.properties
+          fi
+          if [ -n "$BASIC_USER" ]; then
+            echo "BASIC_USER=$BASIC_USER" >> local.properties
+            echo "BASIC_PASS=$BASIC_PASS" >> local.properties
+          fi
+
+      - name: Build APK
+        id: build
+        env:
+          VERSION_NAME: ${{ steps.version.outputs.app_version_name }}
+          VERSION_CODE: ${{ steps.version.outputs.version_code }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          BASIC_USER: ${{ secrets.BASIC_USER }}
+          BASIC_PASS: ${{ secrets.BASIC_PASS }}
+        run: |
+          chmod +x gradlew
+          if [ "${{ github.event_name }}" = "push" ]; then
+            BUILD_TYPE="release"
+          else
+            BUILD_TYPE="${{ github.event.inputs.build_type }}"
+          fi
+          GRADLE_TASK="assemble$(echo "$BUILD_TYPE" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')"
+          ./gradlew clean "$GRADLE_TASK" --no-daemon --stacktrace
+          if [ "$BUILD_TYPE" = "release" ]; then
+            APK_PATH=$(find app/build/outputs/apk/release -name "*.apk" | head -1)
+          else
+            APK_PATH=$(find app/build/outputs/apk/debug -name "*.apk" | head -1)
+          fi
+          if [ -z "$APK_PATH" ]; then
+            echo "::error::APK not found after build"
+            exit 1
+          fi
+          APK_NAME="mobile-lantern-${{ steps.version.outputs.tag_name }}-${BUILD_TYPE}.apk"
+          cp "$APK_PATH" "../$APK_NAME"
+          echo "apk_name=$APK_NAME" >> $GITHUB_OUTPUT
+          echo "build_type=$BUILD_TYPE" >> $GITHUB_OUTPUT
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag_name }}
+          name: Mobile Lantern ${{ steps.version.outputs.tag_name }}
+          body: |
+            Mobile Lantern Android ${{ steps.version.outputs.tag_name }}
+
+            - Build type: ${{ steps.build.outputs.build_type }}
+            - Artifact: ${{ steps.build.outputs.apk_name }}
+          files: ${{ steps.build.outputs.apk_name }}
+          draft: false
+          prerelease: false
+          # La app es el producto de cara al usuario: su release es el "Latest" del repo.
+          make_latest: true

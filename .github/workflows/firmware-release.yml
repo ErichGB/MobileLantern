@@ -1,0 +1,151 @@
+name: Firmware Release
+
+on:
+  push:
+    tags:
+      # Prefijo propio del firmware: NO colisiona con los tags "v*" de la app Android.
+      - "fw-v*"
+  workflow_dispatch:
+    inputs:
+      version_name:
+        description: "Versión del firmware (ej. fw-v1.0.0 o 1.0.0)"
+        required: true
+      esp32_core_version:
+        description: "Versión del core esp32:esp32 (vacío = última estable)"
+        required: false
+        default: ""
+
+# Solo permisos de escritura de releases; independiente del workflow de Android.
+permissions:
+  contents: write
+
+# Evita ejecuciones solapadas del mismo tag sin cancelar el workflow de Android.
+concurrency:
+  group: firmware-release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  SKETCH_NAME: MobileLantern-Android
+  FQBN: esp32:esp32:esp32
+  BOARD_OPTIONS: PartitionScheme=min_spiffs,FlashSize=4M
+  ESP32_INDEX_URL: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            VERSION_TAG="${{ github.event.inputs.version_name }}"
+          else
+            VERSION_TAG="${{ github.ref_name }}"
+          fi
+          # Normaliza: admite "fw-v1.0.0", "v1.0.0" o "1.0.0"
+          FW_VERSION="${VERSION_TAG#fw-}"
+          FW_VERSION="${FW_VERSION#v}"
+          # Asegura un tag con prefijo del firmware para el release
+          case "$VERSION_TAG" in
+            fw-*) RELEASE_TAG="$VERSION_TAG" ;;
+            v*)   RELEASE_TAG="fw-$VERSION_TAG" ;;
+            *)    RELEASE_TAG="fw-v$VERSION_TAG" ;;
+          esac
+          echo "tag_name=$RELEASE_TAG" >> $GITHUB_OUTPUT
+          echo "fw_version=$FW_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Install arduino-cli
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh -s -- -b "$HOME/.local/bin"
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Cache Arduino core and libraries
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.arduino15
+            ~/.cache/arduino
+          key: arduino-${{ runner.os }}-esp32-${{ github.event.inputs.esp32_core_version || 'latest' }}
+          restore-keys: |
+            arduino-${{ runner.os }}-esp32-
+
+      - name: Install ESP32 core and libraries
+        run: |
+          arduino-cli config init --overwrite
+          arduino-cli config add board_manager.additional_urls "$ESP32_INDEX_URL"
+          arduino-cli core update-index
+          CORE_VERSION="${{ github.event.inputs.esp32_core_version }}"
+          if [ -n "$CORE_VERSION" ]; then
+            arduino-cli core install "esp32:esp32@$CORE_VERSION"
+          else
+            arduino-cli core install esp32:esp32
+          fi
+          arduino-cli lib install "Adafruit NeoPixel"
+
+      - name: Prepare sketch folder
+        id: sketch
+        run: |
+          # arduino-cli exige que el .ino principal tenga el mismo nombre que su carpeta.
+          SKETCH_DIR="${RUNNER_TEMP}/${SKETCH_NAME}"
+          mkdir -p "$SKETCH_DIR"
+          cp firmware/*.ino firmware/*.h "$SKETCH_DIR/"
+          # Sincroniza FW_VERSION con la versión del release (OTA compara con tag_name).
+          FW_VERSION="${{ steps.version.outputs.fw_version }}"
+          sed -i -E "s/^#define[[:space:]]+FW_VERSION[[:space:]]+\"[^\"]*\"/#define FW_VERSION \"${FW_VERSION}\"/" \
+            "$SKETCH_DIR/device_commands.h"
+          echo "[firmware] FW_VERSION ->"
+          grep -E "^#define[[:space:]]+FW_VERSION" "$SKETCH_DIR/device_commands.h"
+          echo "sketch_dir=$SKETCH_DIR" >> $GITHUB_OUTPUT
+
+      - name: Compile firmware
+        id: build
+        run: |
+          OUT_DIR="${RUNNER_TEMP}/build-out"
+          arduino-cli compile \
+            --fqbn "${FQBN}" \
+            --board-options "${BOARD_OPTIONS}" \
+            --output-dir "$OUT_DIR" \
+            --warnings none \
+            "${{ steps.sketch.outputs.sketch_dir }}"
+          # El binario de aplicación que consume la OTA HTTP.
+          APP_BIN=$(find "$OUT_DIR" -name "${SKETCH_NAME}.ino.bin" | head -1)
+          if [ -z "$APP_BIN" ]; then
+            echo "::error::firmware .bin not found after build"
+            ls -la "$OUT_DIR" || true
+            exit 1
+          fi
+          # Nombre fijo requerido por ota_commands.h (releases/latest/download/firmware.bin)
+          cp "$APP_BIN" "firmware.bin"
+          # Copia versionada informativa
+          cp "$APP_BIN" "firmware-${{ steps.version.outputs.tag_name }}.bin"
+          echo "asset_latest=firmware.bin" >> $GITHUB_OUTPUT
+          echo "asset_versioned=firmware-${{ steps.version.outputs.tag_name }}.bin" >> $GITHUB_OUTPUT
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag_name }}
+          name: Mobile Lantern Firmware ${{ steps.version.outputs.tag_name }}
+          body: |
+            Mobile Lantern ESP32 firmware ${{ steps.version.outputs.tag_name }}
+
+            - FW_VERSION: ${{ steps.version.outputs.fw_version }}
+            - Board: ESP32 Dev Module (${{ env.FQBN }})
+            - Partition scheme: Minimal SPIFFS (1.9MB APP with OTA / 190KB SPIFFS)
+
+            La OTA HTTP de producción descarga el asset `firmware.bin`.
+            Como la app Android comparte la lista de releases, NO usar el marcador
+            "latest" del repo (apunta a la app). La app debe construir la URL por tag:
+            `releases/download/${{ steps.version.outputs.tag_name }}/firmware.bin`.
+          files: |
+            ${{ steps.build.outputs.asset_latest }}
+            ${{ steps.build.outputs.asset_versioned }}
+          draft: false
+          prerelease: false
+          # El firmware NO debe robar el marcador "Latest" del repo a la app Android.
+          make_latest: false
+
