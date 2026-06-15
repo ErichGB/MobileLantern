@@ -30,6 +30,6 @@ El sistema MobileLantern sigue un flujo pedagógico diseñado para fomentar el a
 
 1. **Check-in** → Únete a la sesión escaneando un QR
 2. **Pregunta** → Formula tu duda al sistema
-3. **🟢 Vaso Verde** → Intenta resolver en equipo (fase colaborativa)
-4. **🔴 Vaso Rojo** → Si no se resuelve, recibe ayuda de IA
+3. **🟢 Filtro Verde** → Intenta resolver en equipo (fase colaborativa)
+4. **🔴 Filtro Rojo** → Si no se resuelve, recibe ayuda de IA
 5. **👨‍🏫 Intervención docente** → El profesor interviene si es necesario

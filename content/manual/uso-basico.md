@@ -14,25 +14,32 @@ Esta guía te enseñará cómo usar MobileLantern durante tus sesiones de clase,
 
 ## 1. Pantalla de Bienvenida
 
-Al abrir la aplicación, verá la pantalla de bienvenida con el logotipo de MobileLantern y una descripción del sistema.
+Al abrir la aplicación, verá la pantalla de bienvenida con una breve descripción del sistema.
 
 **Elementos de la pantalla:**
 
-- **Descripción del sistema**: Texto explicativo sobre la aplicación y su funcionamiento con linterna, vasos de colores y alertas acústicas
-- **Botón "Encender/Apagar linterna"**: Permite probar que la linterna funciona correctamente antes de comenzar la sesión
-- **Botón "Empezar"**: Inicia el proceso de check-in escaneando un código QR
-- **Botón "Continuar"** (solo visible si hay sesión activa): Permite retomar una sesión anterior sin necesidad de escanear el QR nuevamente
-- **Logos institucionales**: En la parte inferior se muestran los logos de las universidades colaboradoras (UPM y UPF)
+- **Descripción del sistema**: Texto explicativo sobre la aplicación.
+- **Selector de linterna**: Dos tarjetas para elegir el tipo de señalización:
+  - 🔦 **Linterna integrada** (flash del teléfono).
+  - 📡 **Linterna externa** (Bluetooth, LED RGB).
 
-**Acciones disponibles:**
+  Cada tarjeta incluye una flecha para **probar** la linterna seleccionada.
+- **Botón principal** con etiqueta dinámica:
+  - **"Empezar"**: Sin sesión activa → abre el panel de escaneo QR.
+  - **"Continuar"**: Con sesión válida → pasa a la pantalla de preguntas.
+  - **Deshabilitado**: Mientras se valida la sesión o si no se ha seleccionado una linterna.
+- **Aviso "Sesión expirada"**: Aparece si su sesión anterior ya no es válida.
+- **Logos institucionales**: En la parte inferior se muestran los logos de las universidades colaboradoras (UPM y UPF).
 
-1. **Probar la linterna**: Pulse el botón **"Encender linterna"** para verificar que la linterna de su dispositivo funciona correctamente. Esto es recomendable antes de cada sesión.
+**Pasos recomendados al iniciar:**
 
-2. **Iniciar nueva sesión**: Pulse **"Empezar"** para ir a la pantalla de escaneo de código QR.
+1. **Seleccione una linterna** (integrada o externa) tocando una tarjeta.
+2. **Pruebe la linterna** con la flecha de la tarjeta.
+3. **Pulse el botón principal** (**"Empezar"** o **"Continuar"**).
 
-3. **Continuar sesión existente**: Si ya tiene una sesión activa de una clase anterior, aparecerá el botón **"Continuar"** que le llevará directamente a la pantalla de preguntas sin necesidad de escanear nuevamente el QR.
+> **💡 Consejo:** El botón principal no se activa hasta que haya elegido una linterna.
 
-> **💡 Consejo:** Pruebe siempre la linterna antes de comenzar para asegurarse de que su dispositivo está listo para la sesión.
+> **📡 Linterna externa:** Si va a usar una linterna externa Bluetooth, consulte la [guía de emparejamiento]({{< ref "linterna-externa" >}}).
 
 ---
 
@@ -52,35 +59,21 @@ La aplicación necesita control exclusivo de la linterna para funcionar correcta
 2. La advertencia desaparecerá automáticamente cuando la linterna esté apagada
 3. Continúe con el uso normal de MobileLantern
 
-> **⚠️ Importante:** Esta advertencia aparecerá también en la pantalla de registro de preguntas si la linterna se enciende externamente durante la sesión.
+> **⚠️ Importante:** Esta advertencia solo aplica cuando se ha seleccionado la **linterna integrada**. Con la linterna externa Bluetooth no hay conflicto con el flash del sistema.
 
 ---
 
-## 2. Escanear Código QR (Check-In)
+## 2. Check-In (Escaneo de Código QR)
 
-La aplicación le pedirá acceso a la cámara. Esto es necesario para escanear el código QR.
+El check-in se realiza mediante un **panel emergente** que se abre al pulsar **"Empezar"** en la pantalla de bienvenida.
 
 **Pasos:**
-1. Conceda el permiso de cámara
+1. Conceda el permiso de cámara la primera vez
 2. Apunte la cámara al código QR proporcionado por el profesor
-3. La aplicación escaneará automáticamente el código
-4. Espere la confirmación de inicio de sesión
+3. La aplicación escaneará y procesará automáticamente el código
+4. Al autenticarse, el panel se cierra y pasa a la pantalla de preguntas
 
 > **💡 Consejo:** Mantenga el código QR dentro del marco de la cámara y asegúrese de tener buena iluminación.
-
-### Check-in mediante Deep Link
-
-Además del escaneo tradicional, MobileLantern puede procesar códigos QR que contengan enlaces especiales (Deep Links). El profesor siempre compartirá un código QR, nunca un enlace directo.
-
-**Cómo Funciona:**
-
-1. **La aplicación detecta automáticamente** el formato del código
-2. **Procesa las credenciales** sin mostrar la cámara
-3. **Muestra un indicador de carga** mientras procesa
-4. **Inicia sesión automáticamente** si las credenciales son válidas
-5. **Redirige a la pantalla de preguntas** al completar
-
-> **💡 Nota:** Desde su perspectiva como estudiante, el proceso es idéntico al escaneo normal de QR. La diferencia es técnica y transparente para usted.
 
 ---
 
@@ -91,17 +84,19 @@ Una vez autenticado, llegará a la pantalla principal donde puede registrar su d
 **Pasos:**
 1. Escriba su pregunta o duda en el campo de texto
 2. Sea específico y claro en su pregunta
-3. Pulse el botón **"Registrar Pregunta"**
-4. Aparecerá un diálogo indicándole que coloque el **vaso verde** en su mesa
+3. Pulse el botón **"Registrar"**
+4. Si usa **linterna integrada**, aparecerá el diálogo indicándole que coloque el **filtro verde**. Con **linterna externa** el LED cambia a verde automáticamente y no se muestra el diálogo.
 
 **¿Qué sucede ahora?**
-- 🔦 La **linterna** de su dispositivo se enciende (luz constante verde)
+- 🔦 La **linterna** se enciende en verde (constante)
 - ⏱️ El **temporizador** comienza a contar
 - 📍 Su profesor puede ver que está trabajando en una pregunta
 
+> **📝 Nota:** Si sale de la pantalla con texto sin registrar, aparecerá un diálogo "¿Perder los cambios?" para confirmar.
+
 ---
 
-## 4. Fase Colaborativa (Vaso Verde)
+## 4. Fase Colaborativa (Filtro Verde)
 
 Durante esta fase, trabaje con sus compañeros de grupo para resolver la pregunta.
 
@@ -131,16 +126,16 @@ Si **no logró resolver** la pregunta:
 1. Escriba el intento de respuesta
 2. Active el switch a **"No"** para indicar que la respuesta colaborativa no es suficientemente buena
 3. Pulse el botón **"Registrar"**
-4. Aparecerá el diálogo para colocar el **vaso rojo**
+4. Si usa **linterna integrada**, aparecerá el diálogo para colocar el **filtro rojo**. Con **linterna externa** el LED cambia a rojo automáticamente sin diálogo.
 
 **¿Qué cambia?**
-- 🔴 Cambie el vaso verde por el **vaso rojo**
-- 🔦 La linterna comienza a **parpadear** (tintineo)
+- 🔴 Cambie el filtro verde por el **filtro rojo** (solo linterna integrada)
+- 🔦 La linterna comienza a **parpadear** tras unos minutos
 - 🤖 Se activa automáticamente la **asistencia por IA**
 
 ---
 
-## 5. Asistencia por IA (Vaso Rojo)
+## 5. Asistencia por IA (Filtro Rojo)
 
 Cuando entra en la fase de asistencia por IA, la aplicación consulta automáticamente al asistente virtual.
 
@@ -158,7 +153,7 @@ La pantalla muestra tres tarjetas principales que representan el flujo completo 
   - **Botón "Sí"** (azul): Indica que la respuesta de la IA resolvió su duda satisfactoriamente
   - **Botón "No"** (rojo): Indica que aún necesita más ayuda o que la respuesta no fue suficiente
 - 🔇 **Botón de silencio**: Icono discreto en la parte inferior de la pantalla que permite silenciar las alertas acústicas en caso de emergencia
-- 👨‍🏫 **Botón flotante (FAB)**: Botón circular en la esquina inferior derecha que solicita intervención directa del profesor cuando necesita ayuda presencial
+- 👨‍🏫 **Botón flotante**: Botón circular en la esquina inferior derecha que solicita intervención directa del profesor cuando necesita ayuda presencial
 
 ### Interacción Continua con la IA
 
@@ -181,7 +176,7 @@ Cuando la IA haya proporcionado su respuesta, la aplicación le preguntará si h
 5. La linterna se **apagará**
 6. Regresará a la pantalla de registrar nueva pregunta
 
-> **📝 Nota:** Si el profesor ha intervenido y resuelto finalmente su pregunta, puede pulsar el botón flotante (FAB) 👨‍🏫 en la esquina inferior derecha para registrar su solución.
+> **📝 Nota:** Si el profesor ha intervenido y resuelto finalmente su pregunta, puede pulsar el **botón flotante** 👨‍🏫 en la esquina inferior derecha para registrar su solución.
 
 **Mensaje de felicitación:**
 > "🤖✨ ¡Excelente! Has resuelto tu duda con la ayuda de la IA. ¡Sigue aprendiendo!"
@@ -217,8 +212,8 @@ En la pantalla de asistencia por IA, encontrará un botón discreto para silenci
 
 El botón requiere **3 toques consecutivos** para activarse (esto evita activaciones accidentales):
 
-1. **Primer toque**: El icono crece ligeramente (escala 1.15x)
-2. **Segundo toque**: El icono crece más (escala 1.3x)
+1. **Primer toque**: El icono crece ligeramente
+2. **Segundo toque**: El icono crece un poco más
 3. **Tercer toque**: Se activa el silencio y el icono cambia a 🔇
 
 > **⏱️ Tiempo límite:** Si pasan más de 2 segundos entre toques, el contador se reinicia.
@@ -250,19 +245,21 @@ Acceda al historial completo de su grupo desde cualquier pantalla.
 > **📝 Nota sobre Modo Aula:** Si su código QR incluye un identificador de aula, el historial mostrará las preguntas de **todos los grupos del aula**, no solo las de su grupo. Esto permite a los profesores tener una vista completa de las dudas de toda la clase.
 
 **Cómo abrir el menú:**
-- Pulse el **icono de menú** en la esquina superior izquierda
+- Pulse el **icono de menú** en la esquina superior derecha
 
 **Elementos de la pantalla:**
 
-- 🔍 **Barra de búsqueda**: Encuentre preguntas escribiendo palabras clave. Los resultados se filtran en tiempo real.
-- ➕ **Botón Nueva Pregunta**: Botón azul con icono "+" para iniciar una nueva sesión o volver a la pantalla de registro.
-- 📅 **Organización temporal**: Las preguntas se agrupan por "Hoy", "Ayer" y "Semana pasada".
+- 🔍 **Barra de búsqueda**: Encuentre preguntas escribiendo palabras clave.
+- ➕ **Botón Nueva Pregunta**: Botón azul con icono "+" para iniciar una nueva sesión.
+- 🔄 **Deslizar hacia abajo**: Refresca la lista desde el servidor.
+- 📅 **Organización temporal**: Las preguntas se agrupan por "Hoy", "Ayer", "Esta semana", "Semana pasada", "Este mes", "Mes pasado" y luego por mes/año.
 - 📝 **Tarjetas de preguntas**: Cada pregunta muestra:
-  - Icono según el estado (✓ verde para completada, 🤖 para consulta IA, 💡 para respuesta, ✋ para pendiente)
+  - Icono según el estado
   - Texto de la pregunta (primeras líneas)
   - Estado: Completada, Consulta IA, Respuesta o Pendiente
   - Fecha de registro
-- 👤 **Perfil de usuario**: En la parte inferior muestra su nombre, email y el total de preguntas. Incluye botón "Cerrar sesión".
+- 📡 **Reconectar linterna**: Si usa linterna externa Bluetooth, un enlace permite reabrir la pantalla de emparejamiento.
+- 👤 **Perfil de usuario**: En la parte inferior muestra su nombre, email y el total de preguntas (resueltas y pendientes). Incluye botón "Cerrar sesión".
 
 **Ver detalles:**
 Toque cualquier pregunta del historial para ver la pregunta completa, respuestas colaborativas, respuestas de la IA, intervención del profesor y la línea temporal completa.
@@ -273,8 +270,8 @@ Toque cualquier pregunta del historial para ver la pregunta completa, respuestas
 
 ### Para Estudiantes
 
-✅ **Pruebe la linterna** en la pantalla de bienvenida antes de comenzar  
-✅ **Asegúrese de que ninguna otra app** esté usando la linterna  
+✅ **Elija y pruebe su linterna** (integrada o externa Bluetooth) en la pantalla de bienvenida antes de comenzar  
+✅ **Asegúrese de que ninguna otra app** esté usando la linterna integrada  
 ✅ **Intente resolver colaborativamente primero** antes de recurrir a la IA  
 ✅ **Sea específico** en sus preguntas tanto a compañeros como a la IA  
 ✅ **Documente su proceso** escribiendo las respuestas intentadas  
@@ -286,8 +283,8 @@ Toque cualquier pregunta del historial para ver la pregunta completa, respuestas
 ### Para Profesores
 
 ✅ **Monitoree las luces** de los dispositivos periódicamente  
-✅ **Priorice los vasos rojos** con parpadeo rápido  
-✅ **Intervenga estratégicamente** cuando suenen las alertas  
+✅ **Priorice los filtros rojos** con parpadeo activo (>3 min en fase IA)  
+✅ **Intervenga estratégicamente** cuando suenen las alertas (>6 min)  
 ✅ **Revise el historial** después de clase para identificar patrones  
 ✅ **Ajuste el contexto pedagógico** según las necesidades del curso  
 ✅ **Fomente el uso colaborativo** antes de recurrir a la IA  
@@ -298,5 +295,6 @@ Toque cualquier pregunta del historial para ver la pregunta completa, respuestas
 
 ## Próximos pasos
 
+- Configura la [linterna externa Bluetooth]({{< ref "linterna-externa" >}}) si dispones de una
 - Consulta las [preguntas frecuentes]({{< ref "faq" >}}) para dudas comunes
 - Revisa [qué es MobileLantern]({{< ref "que-es" >}}) para entender mejor el sistema

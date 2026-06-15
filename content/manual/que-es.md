@@ -111,35 +111,39 @@ MobileLantern utiliza un sistema de señales visuales para comunicar el estado d
 
 | Estado | Descripción | Significado |
 |--------|-------------|-------------|
-| 🔦 **Luz Constante** | Linterna encendida sin parpadear | Fase colaborativa activa (vaso verde) |
-| 💡 **Parpadeo Lento** | 1 parpadeo por segundo | Fase IA inicial (vaso rojo, <3 min) |
-| ⚡ **Parpadeo Rápido** | Parpadeos más frecuentes | Fase IA prolongada (>3 min) |
+| 🔦 **Luz Constante** | Linterna encendida sin parpadear | Fase colaborativa (filtro verde) |
+| 💡 **Parpadeo** | ~1 parpadeo por segundo | Fase IA activa tras 3 min (filtro rojo) |
 | ⚫ **Apagada** | Sin luz | Sin actividad / pregunta resuelta |
 
-### Sistema de Vasos
+### Sistema de Filtros
 
-#### 🟢 Vaso Verde
+#### 🟢 Filtro Verde
 - **Cuándo usarlo:** Durante la fase colaborativa
 - **Significado:** "Estamos trabajando en una pregunta"
 - **Para el profesor:** El grupo está colaborando, no requiere intervención inmediata
 
-#### 🔴 Vaso Rojo
+#### 🔴 Filtro Rojo
 - **Cuándo usarlo:** Cuando no se pudo resolver colaborativamente
 - **Significado:** "Necesitamos ayuda adicional"
 - **Para el profesor:** El grupo está usando IA, monitorear por si necesitan intervención
 
+> **📡 Linterna externa Bluetooth:** Con la linterna externa el color del LED (verde/rojo) cambia automáticamente y no se muestran los diálogos de "Coloca tu filtro". Consulta los detalles en la [guía de la linterna externa]({{< ref "linterna-externa" >}}).
+
 ### Frecuencia de Parpadeo
 
-La linterna aumenta su frecuencia de parpadeo progresivamente:
+Durante toda la fase IA la linterna parpadea a una frecuencia fija de **~1 Hz** (1 parpadeo por segundo).
 
-| Tiempo en Fase IA | Frecuencia | Visual |
-|-------------------|------------|--------|
-| 0-3 minutos | 1 parpadeo/seg | 💡 Lento |
-| 3-6 minutos | 1.4 parpadeos/seg | 💡💡 Medio |
-| 6-9 minutos | 2 parpadeos/seg | 💡💡💡 Rápido |
-| >9 minutos | 2.8 parpadeos/seg | ⚡⚡⚡ Muy rápido |
+En su lugar, la presión sobre el grupo aumenta mediante **alertas acústicas** a partir de los 6 minutos en fase IA:
 
-Esto ayuda al profesor a **identificar visualmente** qué grupos llevan más tiempo en fase IA.
+| Tiempo en Fase IA | Señalización |
+|-------------------|--------------|
+| 0-3 minutos | Sin alertas (solo temporizador visual) |
+| 3-6 minutos | Parpadeo visual (~1 Hz, sin sonido) |
+| 6-7 minutos | 1 pitido cada **30 s** |
+| 7-8 minutos | 1 pitido cada **20 s** |
+| >8 minutos | 1 pitido cada **10 s** |
+
+Esto ayuda al profesor a **identificar** qué grupos llevan más tiempo en fase IA por la combinación de parpadeo y pitidos.
 
 ---
 
@@ -171,13 +175,13 @@ Esto ayuda al profesor a **identificar visualmente** qué grupos llevan más tie
 
 ### Límites y Alertas
 
-Para fomentar el aprendizaje efectivo y evitar dependencia excesiva de la IA:
+Para fomentar la resolución colaborativa y evitar dependencia excesiva de la IA, el sistema avisa visual y acústicamente conforme avanza el tiempo en fase IA:
 
-- **Máximo 3 intentos** con la IA o **10 minutos** de tiempo total
-- Cuando se alcanza este límite:
-  - 🔔 Se emite una **alerta acústica** (3 pitidos)
-  - 👨‍🏫 El profesor recibe notificación visual
-  - 💬 Aún puede continuar usando la IA, pero se sugiere intervención del profesor
+- **A los 3 minutos** en fase IA → la linterna **comienza a parpadear** (filtro rojo).
+- **A los 6 minutos** → se activan **alertas acústicas** periódicas, cada vez más frecuentes (cada 30 s, luego 20 s y, a partir del tercer minuto, cada 10 s).
+- 💬 Puede seguir usando la IA, pero se recomienda solicitar **intervención del profesor**.
+
+> **📝 Nota:** No existe un límite estricto de "número de intentos". El sistema se basa en el tiempo total en fase IA para recordarle que valore pedir ayuda presencial.
 
 ---
 

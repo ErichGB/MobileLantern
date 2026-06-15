@@ -2,7 +2,7 @@
 title: "Preguntas Frecuentes"
 date: 2025-01-25T12:00:00Z
 draft: false
-weight: 5
+weight: 6
 description: "Respuestas a las preguntas más comunes y solución de problemas de MobileLantern"
 ---
 
@@ -108,8 +108,30 @@ En la pantalla de asistencia por IA, hay un botón de silencio (🔊) en la esqu
 **¿La aplicación consume mucha batería?**  
 El uso de la linterna constante puede consumir batería. Se recomienda tener el dispositivo cargado o conectado durante sesiones largas.
 
-**¿Necesito tener los vasos físicos?**  
-Sí, los vasos de colores son parte integral del sistema de señalización para que el profesor pueda monitorear visualmente a todos los grupos.
+**¿Necesito tener los filtros físicos?**  
+Con la linterna integrada, sí: los filtros de color (verde y rojo) que se colocan sobre el flash son parte del sistema de señalización para que el profesor pueda monitorear visualmente a todos los grupos. Con la linterna externa Bluetooth no hacen falta, porque el LED RGB muestra el color directamente.
+
+---
+
+## Linterna Externa Bluetooth
+
+**¿Qué necesito para usar la linterna externa?**  
+Una linterna externa MobileLantern (LED RGB con Bluetooth) y tener activados el **Bluetooth** y la **Ubicación** en su dispositivo. Android exige el permiso de ubicación para descubrir dispositivos Bluetooth cercanos.
+
+**¿Cómo emparejo la linterna por primera vez?**  
+Tiene dos opciones: escanear el **código QR adhesivo** del dispositivo o pulsar **"Buscar"** y seleccionarla de la lista (la app filtra los dispositivos con prefijo `ML-`). Consulte la [guía de la linterna externa]({{< ref "linterna-externa" >}}).
+
+**No aparece mi linterna al buscar. ¿Qué hago?**  
+- Verifique que la linterna esté encendida (parpadeo azul tenue)
+- Active Bluetooth y Ubicación en el dispositivo
+- Acérquela al teléfono y vuelva a pulsar "Buscar"
+- Si dispone del QR adhesivo, use "Escanear QR" en su lugar
+
+**Se desconectó la linterna durante la sesión. ¿Pierdo mi progreso?**  
+No. Aparecerá un aviso con la opción **"Reconectar linterna"** (sin perder la sesión) o **"Cambiar a modo integrado"**. También puede reconectar desde el menú lateral.
+
+**¿Necesito los filtros de color con la linterna externa?**  
+No. El LED RGB cambia de color automáticamente (verde/rojo) y no se muestran los diálogos de "Coloca tu filtro".
 
 ---
 
@@ -151,8 +173,8 @@ Sí, los vasos de colores son parte integral del sistema de señalización para 
 **¿Qué es el “ambient display”?**  
 Es la funcionalidad que convierte tu teléfono en un dispositivo de señalización ambiental usando la linterna y sonidos para comunicar el estado de tu grupo a todos los miembros.
 
-**¿Por qué se llama “vaso verde” y “vaso rojo”?**  
-La terminología proviene de la metáfora pedagógica del semáforo:
+**¿Por qué se llama “filtro verde” y “filtro rojo”?**  
+La terminología proviene de la metáfora pedagógica del semáforo, aplicada a los filtros de color que se colocan sobre la linterna (o al color del LED de la linterna externa):
 - **Verde**: Puedes continuar trabajando en grupo
 - **Rojo**: Necesitas detenerte y recibir ayuda
 

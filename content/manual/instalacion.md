@@ -17,6 +17,7 @@ Esta guía te ayudará a instalar la aplicación móvil MobileLantern en tu disp
 - Dispositivo Android con **SDK 28 (Android 9)** o superior
 - Cámara trasera funcional para escaneo QR
 - Linterna (LED flash) funcional
+- **Bluetooth 4.0+** (para usar la linterna externa)
 - Mínimo **2GB de RAM**
 - **100MB** de espacio disponible
 
@@ -33,8 +34,10 @@ La aplicación solicitará los siguientes permisos:
 | Permiso | Propósito | Obligatorio |
 |---------|-----------|-------------|
 | 📷 **Cámara** | Escanear código QR de acceso | ✅ Sí |
-| 🔦 **Linterna** | Sistema de señalización visual | ✅ Sí |
+| 🔦 **Linterna** | Señalización visual (integrada) | ✅ Sí |
 | 🌐 **Internet** | Comunicación con IA y servidor | ✅ Sí |
+| 📡 **Bluetooth** | Linterna externa | Opcional |
+| 📍 **Ubicación** | Requerido por Android para Bluetooth | Opcional |
 
 ---
 
@@ -94,8 +97,8 @@ La primera vez que abras MobileLantern, la aplicación te pedirá los permisos n
 Para confirmar que la instalación fue exitosa:
 
 1. Abre la aplicación MobileLantern
-2. Deberías ver la pantalla de bienvenida
-3. El botón **"Empezar"** debe estar visible
+2. Deberías ver la pantalla de bienvenida con el selector de linterna (integrada / externa Bluetooth)
+3. El botón principal **"Empezar"** debe estar visible (se habilita al seleccionar una linterna)
 
 ---
 
@@ -169,4 +172,5 @@ Si necesitas desinstalar MobileLantern:
 Una vez instalada la aplicación:
 
 - Lee sobre el [uso básico]({{< ref "uso-basico" >}}) para comenzar
+- Configura la [linterna externa Bluetooth]({{< ref "linterna-externa" >}}) si dispones de una
 - Consulta las [preguntas frecuentes]({{< ref "faq" >}}) si tienes dudas
