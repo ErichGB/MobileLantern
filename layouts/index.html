@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{ $downloadQR := resources.Get "js/download-qr.js" | js.Build }}
+<script type="module" src="{{ $downloadQR.Permalink }}" defer></script>
 <!-- Hero Section -->
 <div class="bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-950 min-h-screen lg:min-h-[600px] lg:max-h-[850px]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 lg:min-h-[600px] lg:max-h-[850px] lg:flex lg:items-center">
@@ -42,6 +44,40 @@
           <a href="{{ "/manual" | relURL }}" class="inline-flex items-center px-6 py-3 border-2 border-violet-300 dark:border-violet-700 hover:border-violet-400 dark:hover:border-violet-600 text-violet-700 dark:text-violet-300 font-medium rounded-lg transition-colors">
             {{ i18n "view_manual" }}
           </a>
+        </div>
+
+        <!-- Download QR (scan with phone to download latest APK) -->
+        <div x-cloak
+             x-show="!$store.download.loading && $store.download.downloadUrl"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 scale-95"
+             x-transition:enter-end="opacity-100 scale-100"
+             x-data="{
+               rendered: false,
+               tryRender() {
+                 const url = $store.download.downloadUrl;
+                 const canvas = $refs.qrCanvas;
+                 if (url && canvas && window.renderDownloadQR && !this.rendered) {
+                   window.renderDownloadQR(canvas, url);
+                   this.rendered = true;
+                 }
+               }
+             }"
+             x-effect="tryRender()"
+             x-init="$watch('$store.download.downloadUrl', () => { this.rendered = false; tryRender(); });
+                     const _qrTimer = setInterval(() => { tryRender(); if (this.rendered) clearInterval(_qrTimer); }, 200);"
+             class="mt-8 flex items-center gap-4 justify-center lg:justify-start">
+          <div class="bg-white p-2 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
+            <canvas x-ref="qrCanvas" width="200" height="200" class="block w-28 h-28"></canvas>
+          </div>
+          <div class="text-left max-w-[12rem]">
+            <p class="text-sm font-semibold text-slate-900 dark:text-white">
+              {{ i18n "download_qr_title" }}
+            </p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">
+              {{ i18n "download_qr_hint" }}
+            </p>
+          </div>
         </div>
 
         <!-- Collaborators Section -->

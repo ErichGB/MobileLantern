@@ -32,6 +32,12 @@ other = "Ver Manual"
 [download_apk]
 other = "Descargar APK"
 
+[download_qr_title]
+other = "Escanea para descargar"
+
+[download_qr_hint]
+other = "Apunta la cámara de tu móvil al código QR para descargar la app"
+
 # QR Generator
 [qr_generator_title]
 other = "Generador de Código QR"
